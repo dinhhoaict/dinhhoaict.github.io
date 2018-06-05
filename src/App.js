@@ -8,10 +8,6 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="App">
-				<nav>
-					<Link to="/about">About</Link>
-					<Link to="/">Home</Link>
-				</nav>
 				<div>
 					<Route path="/about" component={About} />
 					<Route exact path="/" component={Home} />
