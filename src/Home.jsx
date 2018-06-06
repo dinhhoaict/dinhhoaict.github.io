@@ -1,14 +1,16 @@
 import React from "react";
 import Header from "./home/header";
+// var Header = require('./home/header');
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
+      let header = <Header />;
     return (
       <div>
-        <Header />
+        {header}
         <main role="main" class="container">
           <div class="jumbotron">
             <h1>Navbar example</h1>

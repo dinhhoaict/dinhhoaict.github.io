@@ -3,6 +3,7 @@ import './App.css';
 import { Link, Route } from "react-router-dom";
 import About from "./About";
 import Home from "./Home";
+import Blog from './blog/Blog';
 
 class App extends React.Component {
 	render() {
@@ -10,6 +11,7 @@ class App extends React.Component {
 			<div className="App">
 				<div>
 					<Route path="/about" component={About} />
+					<Route path="/blog" component={Blog} />
 					<Route exact path="/" component={Home} />
 				</div>
 			</div>
