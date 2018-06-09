@@ -8,7 +8,7 @@ class MainContainer extends Component {
         return (
             <div>
                 <main role="main">
-                    <div class="row">
+                    <div class="row" style={{'min-height': 60}}>
                         <div class="main-blog col-md-8">
 
 
