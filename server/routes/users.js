@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.json({"header": 1, "msg": "test"});
 });
 
-router.get('/username/:username/age/:age', function(req, res, next) {
+router.get('/:username/age/:age', function(req, res, next) {
   var username = req.params["username"];
   var request = {"params": req.params , "query": req.query, "param": req.param};
   res.json(request);
