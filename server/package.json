@@ -7,14 +7,18 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
+    "cookie-session": "^2.0.0-beta.3",
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
     "express": "~4.16.0",
+    "express-session": "^1.15.6",
+    "helmet": "^3.12.1",
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
     "mysql": "^2.15.0",
     "nodemon": "^1.17.5",
     "pm2": "^2.10.4",
-    "redis": "^2.8.0"
+    "redis": "^2.8.0",
+    "regex": "^0.1.1"
   }
 }
