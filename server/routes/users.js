@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var requestUltis = require("../middlewares/requestUltis");
-var validator = requestUltis();
+var TestClass = require("../middlewares/testClass");
+
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -12,8 +13,19 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/login', function (req, res, next) {
-	var user = validator.get_argument(req.query, id, "_.@");
-	res.json({"user": user});
+	try {
+		console.log(" ", require('util').inspect(req.params), "query : ", require('util').inspect(req.query));
+		var testClass = new TestClass("dkm javascript");
+		var user = testClass.get_argument(req.query, "id", "_.@");
+		res.json({
+			"user": user
+		});
+	} catch (err) {
+		res.json({
+			"error": err.message
+		})
+	}
+
 
 });
 
