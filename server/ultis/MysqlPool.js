@@ -31,6 +31,7 @@ exports.query = function (query, callback) {
             });
 
             connection.on('error', function (err) {
+                console.log("[mysql error]",err);
                 connection.release();
                 callback(null, err);
                 throw (err);
