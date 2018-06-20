@@ -32,16 +32,32 @@ async function _get_user(username, password) {
         });
     return result;
 }
+
+async function _check_params(req, res, next){
+    console.dir(req.body);
+    try {
+        if(req.body.name == "")
+        throw new Error("username/password is invalid");
+    if(req.body.pwd == "" || req.body.pwd == undefined){
+        throw new Error("username/password is invalid");
+    }
+    next();
+    } catch (error) {
+        next(error);
+    }
+    
+    
+}
 /**
  * url : http://localhost:8686/login?id=hoaibadinh&cookie=
  * @method POST
  * @param {string} id user id
  * @param {}
  */
-router.post('/',jsonParser, async function(req, res, next){
+router.post('/',_check_params, async function(req, res, next){
     try {
         var request = new Request();
-
+        console.dir(req.body);
         var username = request.get_argument(req.body, "name", "_.@");
         var pwd = request.get_argument(req.body, "pwd", "_.@");
         var result = await _get_user(username, pwd);
