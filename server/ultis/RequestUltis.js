@@ -95,7 +95,9 @@ module.exports.overrideForLogger = function (req, res, next) {
             _status(req, res),
             req.originalUrl || req.url,
             "Body: ",
-            JSON.stringify(req.body),
+            req.body !== {} ? JSON.stringify(req.body): "",
+            _response_time(req, res, 3),
+            "ms",
 
         ].join(" ");
         logger.info(logReq);
@@ -107,9 +109,7 @@ module.exports.overrideForLogger = function (req, res, next) {
         let logRes = [
             req.resId, "RES: ",
             chunks.join(""),
-            "ResTime: ",
-            _response_time(req, res, 3),
-            "ms",
+           
         ].join(" ");
         logger.info(logRes);
     };
