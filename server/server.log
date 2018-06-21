@@ -1,0 +1,14 @@
+[2018-06-21T02:35:05.879] [DEBUG] api - Some debug messages
+[2018-06-21T02:35:06.324] [INFO] api - 08feb320-74c1-11e8-b4b2-2b7025f3ecbf GET / {}
+[2018-06-21T02:35:06.324] [INFO] api - 08feb320-74c1-11e8-b4b2-2b7025f3ecbf / 
+[2018-06-21T02:35:21.268] [DEBUG] api - Some debug messages
+[2018-06-21T02:35:41.543] [DEBUG] api - Some debug messages
+[2018-06-21T02:35:43.186] [INFO] api - 1ef7b320-74c1-11e8-a6e0-77ba3f46ccdd GET / {}
+[2018-06-21T02:35:43.186] [INFO] api - 1ef7b320-74c1-11e8-a6e0-77ba3f46ccdd / {}
+[2018-06-21T02:35:53.382] [DEBUG] api - Some debug messages
+[2018-06-21T02:35:56.792] [INFO] api - 27138160-74c1-11e8-8392-5d72731750da GET / {}
+[2018-06-21T02:35:56.792] [INFO] api - 27138160-74c1-11e8-8392-5d72731750da / undefined
+[2018-06-21T02:36:19.563] [DEBUG] api - Some debug messages
+[2018-06-21T02:36:20.688] [INFO] api - 3551bee0-74c1-11e8-98ae-573cdfbc3a02 GET / {}
+[2018-06-21T02:36:20.689] [INFO] api - 3551bee0-74c1-11e8-98ae-573cdfbc3a02 / ""
+[2018-06-21T02:37:23.813] [DEBUG] api - Some debug messages

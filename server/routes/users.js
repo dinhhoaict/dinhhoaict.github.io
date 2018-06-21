@@ -5,15 +5,19 @@ var Request = require("../middlewares/Request");
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-	res.json({
-		"header": 1,
-		"msg": "test"
-	});
+	var str = {
+		"header": 2,
+		"msg": "test aa"
+	};
+	res.write(JSON.stringify(str));
+	res.write(JSON.stringify(str));
+	res.write(JSON.stringify(str));
+	res.send();
 });
 
 router.get('/:username/age/:age', function (req, res, next) {
 	var username = req.params["username"];
-	res.json(request);
+	res.json(req);
 });
 
 module.exports = router;

@@ -17,6 +17,7 @@
     "ejs": "~2.5.7",
     "envs": "^0.1.6",
     "express": "~4.16.0",
+    "express-request-id": "^1.4.0",
     "express-session": "^1.15.6",
     "express-yields": "^1.1.2",
     "helmet": "^3.12.1",
@@ -26,9 +27,12 @@
     "morgan": "~1.9.0",
     "mysql": "^2.15.0",
     "nodemon": "^1.17.5",
+    "on-finished": "^2.3.0",
+    "on-headers": "^1.0.1",
     "pm2": "^2.10.4",
     "promise": "^8.0.1",
     "redis": "^2.8.0",
-    "regex": "^0.1.1"
+    "regex": "^0.1.1",
+    "uuid": "^3.2.1"
   }
 }
