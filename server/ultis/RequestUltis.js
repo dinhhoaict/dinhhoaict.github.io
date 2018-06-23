@@ -5,26 +5,12 @@ const logger = log4js.getLogger("api");
 var uuidv1 = require("uuid/v1");
 var onFinished = require('on-finished');
 var onHeaders = require('on-headers');
-
-log4js.configure({
-    appenders: {
-        everything: { type: 'dateFile', filename: 'E:\\server.log', pattern: '.yyyy-MM-dd-hh', compress: true },
-        error: { type: 'logLevelFilter', filename: 'E:\\error.log' },
-        console: { type: 'console' }
-
-    },
-    categories: {
-        api: { appenders: ['everything', 'console'], level: 'debug' },
-        default: { appenders: ['everything', 'console'], level: 'debug' }
-    }
-});
-
-logger.debug("Start server");
+log4js.configure(require("../config/logger").config);
 /**
  * Time between resquest and response in miliseconds.
  * @param {Request} res
  * @param {Response} req
- * @returns {Integer} 
+ * @returns {String} 
  */
 function _response_time(req, res, digits) {
     if (!req._startAt || !res._startAt) {
@@ -40,12 +26,25 @@ function _response_time(req, res, digits) {
 
     // return truncated value
     return ms.toFixed(digits === undefined ? 3 : digits);
-};
+}
 
+/**
+ * Response status
+ *
+ * @param {Request} req
+ * @param {Response} res
+ * @returns {String} response status: 200 | 500 | 404
+ */
 function _status(req, res) {
     return headersSent(res) ? String(res.statusCode) : undefined;
 }
 
+/**
+ *
+ * Check response is sent or not.
+ * @param {Response} res
+ * @returns {Boolean}
+ */
 function headersSent(res) {
     return typeof res.headersSent !== 'boolean' ? Boolean(res._header) : res.headersSent;
 }
@@ -60,16 +59,28 @@ function logRequest() {
     this._startAt = process.hrtime()
 }
 
+/**
+ * Get request IP
+ * @private
+ * @param {Request} req
+ * @returns {String}
+ */
 function _getip(req) {
     return req.ip ||
         req._remoteAddress ||
         (req.connection && req.connection.remoteAddress) ||
         undefined
 }
-
+/**
+ * Overring write, send, end method for logging
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
 module.exports.overrideForLogger = function (req, res, next) {
-    let oldWrite = res.write,
-        oldEnd = res.end;
+    let oldWrite = res.write;
+    let oldEnd = res.end;
     let oldJson = res.json;
     let oldSend = res.send;
     res._startAt = undefined;
@@ -79,7 +90,7 @@ module.exports.overrideForLogger = function (req, res, next) {
     recordStartTime.call(req);
     res.write = function (chunk) {
         chunks.push(chunk);
-        logger.error("write method");
+        // logger.error("write method");
         oldWrite.apply(res, arguments);
     };
 
@@ -107,7 +118,6 @@ module.exports.overrideForLogger = function (req, res, next) {
         let logRes = [
             req.resId, "RES: ",
             chunks.join(""),
-            "ResTime: ",
             _response_time(req, res, 3),
             "ms",
         ].join(" ");
