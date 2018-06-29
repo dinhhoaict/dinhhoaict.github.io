@@ -3,10 +3,6 @@ var router = express.Router();
 var Request = require("../middlewares/Request");
 var DB = require("../ultis/MysqlPool");
 var md5 = require("md5");
-var bodyParser =require("body-parser");
-
-var jsonParser = bodyParser.json();
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 
 async function _random_uid () {
@@ -48,13 +44,8 @@ async function _check_params(req, res, next){
     
     
 }
-/**
- * url : http://localhost:8686/login?id=hoaibadinh&cookie=
- * @method POST
- * @param {string} id user id
- * @param {}
- */
-router.post('/',_check_params, async function(req, res, next){
+
+async function _login(req, res, next) {
     try {
         var request = new Request();
         console.dir(req.body);
@@ -72,13 +63,19 @@ router.post('/',_check_params, async function(req, res, next){
         var id = await _random_uid();
         // res.write({row : result, md5: id});
         res.json({row : result, md5: id});
-        // res.end();
-    } catch (err) {
-        res.json({
-            "error": err.message
-        })
+    } catch (error) {
+        next(new Error(error));
     }
-});
+}
+
+
+/**
+ * url : http://localhost:8686/login?id=hoaibadinh&cookie=
+ * @method POST
+ * @param {string} id user id
+ * @param {}
+ */
+router.post('/',_check_params, _login);
 
 
 
