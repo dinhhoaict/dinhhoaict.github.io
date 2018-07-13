@@ -11,6 +11,7 @@ var RequestUltis = require("./ultis/RequestUltis");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/loginRouter');
+var homeRouter = require("./routes/home");
 require("dotenv").config();
 
 var app = express();
@@ -37,8 +38,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routing 
 app.disable('x-powered-by');
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/user', usersRouter);
 app.use('/login', loginRouter);
+app.use('/app', homeRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

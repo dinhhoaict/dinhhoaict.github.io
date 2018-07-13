@@ -10,7 +10,6 @@ async function _random_uid () {
     console.log()
     var md5Str = md5(str);
     return md5Str;
-
 };
 
 
@@ -41,8 +40,6 @@ async function _check_params(req, res, next){
     } catch (error) {
         next(error);
     }
-    
-    
 }
 
 async function _login(req, res, next) {

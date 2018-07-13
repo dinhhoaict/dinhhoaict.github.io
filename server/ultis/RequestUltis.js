@@ -97,7 +97,11 @@ module.exports.overrideForLogger = function (req, res, next) {
     res.send = function (chunk) {
         let resId = uuidv1();
         req.resId = resId;
-
+        // logger.error("pre-send");
+        oldSend.apply(res, arguments);
+        // logger.error("after-send");
+        chunks.push(chunk);
+        recordStartTime.call(res);
         let logReq = [
             req.resId,
             "REQ: ",
@@ -105,23 +109,15 @@ module.exports.overrideForLogger = function (req, res, next) {
             req.method,
             _status(req, res),
             req.originalUrl || req.url,
-            "Body: ",
             req.body !== {} ? JSON.stringify(req.body): "",
             _response_time(req, res, 3),
             "ms",
-
         ].join(" ");
         logger.info(logReq);
-        // logger.error("pre-send");
-        oldSend.apply(res, arguments);
-        // logger.error("after-send");
-        chunks.push(chunk);
-        recordStartTime.call(res);
         let logRes = [
             req.resId, "RES: ",
             chunks.join(""),
-            _response_time(req, res, 3),
-            "ms",
+            
         ].join(" ");
         logger.info(logRes);
     };

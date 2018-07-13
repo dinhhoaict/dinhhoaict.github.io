@@ -1,7 +1,7 @@
 var mysql = require("mysql");
 var Promise = require("promise");
 var pool = mysql.createPool({
-    host: 'localhost',
+    host: '178.128.210.122',
     port: '3306',
     user: 'root',
     password: 'Sharp@1991'
@@ -16,7 +16,7 @@ var pool = mysql.createPool({
  * @param {Integer} ms Query timeout in miliseconds
  * @return Promise
  */
-exports.executeReturn = async function(query, params, ms = 1){
+exports._executeReturn = async function(query, params, ms = 1000){
     try {
         var execute = new Promise(function(resolve, reject){
             pool.getConnection(
@@ -65,6 +65,21 @@ exports.executeReturn = async function(query, params, ms = 1){
     }
     
 };
+
+exports.executeReturn = async function(query, params){
+    var result;
+    await exports._executeReturn(query, null)
+        .then(function (rows) {
+            console.log(rows);
+            result = {err_code: 0, data: rows};
+        })
+        .catch(function (err) {
+            console.log(err);
+            result = {err_code: 1,msg: err};
+        });
+    return result;
+};
+
 exports.executeNonReturn = async function(query, params){
     return new Promise(function(resolve, reject){
         pool.getConnection(
