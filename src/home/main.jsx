@@ -93,7 +93,7 @@ class Main extends Component {
 
                     <ExperienceSection></ExperienceSection>
 
-                    <WorkSection></WorkSection>
+                    {/* <WorkSection></WorkSection> */}
 
                     <BlogSection></BlogSection>
 
