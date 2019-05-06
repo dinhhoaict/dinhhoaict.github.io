@@ -30,7 +30,8 @@ class HomeSection extends Component {
                                                     Hi! <br />I'm Bá Đình Hoài
                                                 </h1>
                                                 <h2>
-                                                    Full Stack Developer
+                                                    Backend Developer
+                                                    Fan of Python and love Nodejs.
                                                 </h2>
                                                 <p>
                                                     <a className="btn btn-primary btn-learn">

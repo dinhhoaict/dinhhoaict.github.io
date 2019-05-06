@@ -19,32 +19,13 @@ class AboutSection extends Component {
                                 <div className="col-md-12">
                                     <div className="about-desc">
                                         <span className="heading-meta">
-                                            About Us
+                                            About Me
                                         </span>
-                                        <h2 className="colorlib-heading">
-                                            Who Am I?
-                                        </h2>
                                         <p>
-                                            <strong>Hi I'm Jackson Ford</strong>{" "}
-                                            On her way she met a copy. The copy
-                                            warned the Little Blind Text, that
-                                            where it came from it would have
-                                            been rewritten a thousand times and
-                                            everything that was left from its
-                                            origin would be the word "and" and
-                                            the Little Blind Text should turn
-                                            around and return to its own, safe
-                                            country.
+                                            I primarily work at Backend but still have passion at frontend. Becoming full stack developer is my target.
+                                            If you look to hire, please contact me or get in touch with me here.
                                         </p>
-                                        <p>
-                                            Even the all-powerful Pointing has
-                                            no control about the blind texts it
-                                            is an almost unorthographic life One
-                                            day however a small line of blind
-                                            text by the name of Lorem Ipsum
-                                            decided to leave for the far World
-                                            of Grammar.
-                                        </p>
+
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +38,7 @@ class AboutSection extends Component {
                                         <span className="icon2">
                                             <i className="icon-bulb" />
                                         </span>
-                                        <h3>Graphic Design</h3>
+                                        <h3>Python Backend</h3>
                                     </div>
                                 </div>
                                 <div
@@ -68,7 +49,7 @@ class AboutSection extends Component {
                                         <span className="icon2">
                                             <i className="icon-globe-outline" />
                                         </span>
-                                        <h3>Web Design</h3>
+                                        <h3>Android native</h3>
                                     </div>
                                 </div>
                                 <div
@@ -99,7 +80,7 @@ class AboutSection extends Component {
                                     className="col-md-12 animate-box"
                                     data-animate-effect="fadeInLeft"
                                 >
-                                    <div className="hire">
+                                    {/* <div className="hire">
                                         <h2>
                                             I am happy to know you <br />that
                                             300+ projects done sucessfully!
@@ -107,7 +88,7 @@ class AboutSection extends Component {
                                         <a href="#" className="btn-hire">
                                             Hire me
                                         </a>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
