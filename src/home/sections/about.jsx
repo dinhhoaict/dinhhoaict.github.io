@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 function mapStateToProps(state) {
-    return {};
+  return {};
 }
 
 class AboutSection extends Component {
@@ -80,7 +80,7 @@ class AboutSection extends Component {
                                     className="col-md-12 animate-box"
                                     data-animate-effect="fadeInLeft"
                                 >
-                                    {/* <div className="hire">
+                                    <div className="hire">
                                         <h2>
                                             I am happy to know you <br />that
                                             300+ projects done sucessfully!
@@ -88,15 +88,15 @@ class AboutSection extends Component {
                                         <a href="#" className="btn-hire">
                                             Hire me
                                         </a>
-                                    </div> */}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        );
-    }
+      </section>
+    );
+  }
 }
 
 export default AboutSection;
