@@ -1,20 +1,51 @@
-export function visibilityFilter(state = 'SHOW_ALL', action) {
-	if(action.type == 'SET_VISIBILITY_FILTER'){
-		return action.filter;
-	}else{
-		return state;
+var initState = {
+	status : false,
+	data : []
+}
+
+var initState2 = {
+	status : true,
+	data : [1]
+}
+
+
+export function myReducer(state = initState, action){
+	switch (action.type) {
+		case 'CHANGE_STATUS':
+			{
+				let newState = {...state};
+				newState.status = !state.status;
+				return newState;
+			}
+		case 'ADD_NEW':
+			{
+				let newState = Object.assign({}, state);
+				newState.status = !state.status;
+				newState.data = [...newState.data, !state.status];
+				return newState;
+			}
+		default:
+			return state;
 	}
 }
 
-export function todo(state = [], action){
+
+export function myReducer2(state = initState2, action){
 	switch (action.type) {
-		case 'ADD_TODO':
-			return state.concat([{text: action.text, complete: false}]);
-		case 'TOGGLE_TODO':
-			return state.map((todo, index) =>
-				action.index == index ? {...todo, complete: !todo.complete} : todo);
-	
+		case 'CHANGE_STATUS':
+			{
+				let newState = {...state};
+				newState.status = !state.status;
+				return newState;
+			}
+		case 'ADD_NEW':
+			{
+				let newState = Object.assign({}, state);
+				newState.status = !state.status;
+				newState.data = [...newState.data, !state.status];
+				return newState;
+			}
 		default:
-			break;
+			return state;
 	}
 }
