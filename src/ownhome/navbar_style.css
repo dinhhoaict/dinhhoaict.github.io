@@ -1,0 +1,13 @@
+nav .mynavbar{
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: aliceblue;
+}
+
+.nav-item .nav-link{
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.15;
+    color: black;
+    font-size: 1em;
+}

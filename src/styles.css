@@ -1,17 +1,17 @@
-html,
+/* html,
 body {
 	margin: 0;
   font-family: arial,helvetica;
-}
+} */
 
-html {
+/* html {
   box-sizing: border-box;
-}
-*, *:before, *:after {
+} */
+/* *, *:before, *:after {
   box-sizing: inherit;
 }
 
-/* footer,
+footer,
 header {
   color: #fff;
   text-align: center;
