@@ -2,8 +2,19 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "fullpage.js/vendors/scrolloverflow"; // Optional. When using scrollOverflow:true
 import ReactFullpage from "@fullpage/react-fullpage";
+import { fetchingData } from "./action";
 function mapStateToProps(state) {
-  return {};
+    return {
+        menu: state.ownhome.menu,
+        redditData: state.redditData
+    };
+}
+
+function mapDispatchToProps(dispatch){
+    return {
+        fetchingData: () => dispatch(fetchingData()),
+        dispatch
+    }
 }
 
 class OwnHome extends Component {
@@ -16,8 +27,8 @@ class OwnHome extends Component {
   render() {
     return (
       <ReactFullpage
-        anchors={["Home", "About", "Skill", "Experience"]}
-        sectionsColor={["#282c34", "#ff5f45", "#0798ec"]}
+        anchors={this.props.menu}
+        sectionsColor={["#FFFFFF", "#ff5f45", "#0798ec"]}
         scrollOverflow={true}
         navigation
         debug
@@ -28,8 +39,8 @@ class OwnHome extends Component {
           return (
             <div id="fullpage-wrapper">
               <div className="section section1">
-                <h3>Section 1</h3>
-                <button onClick={() => fullpageApi.moveSectionDown()}>
+                <p>{JSON.stringify(this.props.redditData.data)}</p>
+                <button onClick={() => this.props.fetchingData()}>
                   Move down
                 </button>
               </div>
@@ -59,4 +70,4 @@ class OwnHome extends Component {
   }
 }
 
-export default connect(mapStateToProps)(OwnHome);
+export default connect(mapStateToProps, mapDispatchToProps)(OwnHome);

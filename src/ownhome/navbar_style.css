@@ -4,10 +4,16 @@ nav .mynavbar{
     color: aliceblue;
 }
 
-.nav-item .nav-link{
+.mynavbar .nav-item .nav-link{
     font-weight: 400;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.15;
     color: black;
     font-size: 1em;
+}
+
+.mynavbar .navbar-brand img{
+    border-radius: 50%;
+    width: 40px;
+    margin: 0px;
 }

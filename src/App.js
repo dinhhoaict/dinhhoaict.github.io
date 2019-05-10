@@ -9,16 +9,16 @@ import { Provider } from "react-redux";
 import OwnHome from "./ownhome/ownhome";
 import NavBar from "./ownhome/navbar";
 
-const store = createStore(rootReducer); // Khởi tạo store
+// const store = createStore(rootReducer); // Khởi tạo store
 
-console.log('Default:', store.getState());
+// console.log('Default:', store.getState());
 
-var action2 = { type : 'ADD_NEW'};
-store.dispatch(action2);
-store.dispatch(action2);
-store.dispatch(action2);
-store.dispatch(action2);
-console.log('Default:', store.getState());
+// var action2 = { type : 'ADD_NEW'};
+// store.dispatch(action2);
+// store.dispatch(action2);
+// store.dispatch(action2);
+// store.dispatch(action2);
+// console.log('Default:', store.getState());
 class App extends React.Component {
 	render() {
 		return (

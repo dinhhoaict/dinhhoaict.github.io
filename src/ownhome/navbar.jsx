@@ -3,43 +3,36 @@ import { connect } from "react-redux";
 import "./navbar_style.css";
 
 function mapStateToProps(state) {
-  return {};
+    return {
+        menu : state.ownhome.menu
+    };
 }
 
 class NavBar extends Component {
   render() {
-    return <nav className="mynavbar navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
-        <a className="navbar-brand" href="#">
-          <img src="/images/about.jpg" alt="Logo" style={{ width: "40px" }} />
-        </a>
-        <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-          <span class="navbar-toggler-icon" />
+    //   console.log("NavBar ",this.props.menu);
+    return (
+      <nav className="mynavbar navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
+            <a className="navbar-brand" href="#"><img src="/images/about.jpg" alt="Logo"></img></a>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
-          <ul className="nav nav-tabs">
-            <li className="nav-item">
-                <a className="nav-link" href="#Home">
-                    Home
-                </a>
-            </li>
-            <li className="nav-item">
-                <a className="nav-link" href="#About">
-                    About
-                </a>
-            </li>
-            <li className="nav-item">
-                <a className="nav-link" href="#Skill">
-                    Skill
-                </a>
-            </li>
-            <li className="nav-item">
-                <a className="nav-link" href="#Experience">
-                    Experience
-                </a>
-            </li>
-          </ul>
+        <div className="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+        <ul className="navbar-nav">
+            {
+                this.props.menu.map(item => {
+                    return <li className="nav-item">
+                        <a className="nav-link" href={"#" + item}>
+                        {item}
+                        </a>
+                    </li>
+                })
+            
+            }
+        </ul>
         </div>
-      </nav>;
+      </nav>
+    );
   }
 }
 
