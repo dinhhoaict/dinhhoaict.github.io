@@ -5,11 +5,15 @@ import React from "react";
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import rootReducer from "./reducers";
+import {createLogger} from "redux-logger";
+import thunk from "redux-thunk";
 
+var store = createStore(rootReducer, applyMiddleware(thunk, createLogger()));
+console.log("Store: ", store);
 ReactDOM.render(
-    <Provider store={createStore(rootReducer)}>
+    <Provider store={store}>
         <App />
     </Provider>
         , document.getElementById('root'));
