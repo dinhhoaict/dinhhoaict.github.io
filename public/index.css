@@ -1,0 +1,15 @@
+#my_jumbotron{
+    padding-top: 100px;
+    color: #FFFFFF;
+    height: 450px;
+    background-color: slateblue;
+}
+
+#container{
+    max-width: 1420px;
+    margin: auto;
+}
+
+.process-wrapper{
+    margin: 10px;
+}

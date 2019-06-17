@@ -68,8 +68,9 @@ figure {
   background: #2c98f0; }
 
 #colorlib-page {
-  width: 100%;
+  width: 1200px;
   overflow: hidden;
+  margin: auto;
   position: relative; }
 
 #colorlib-aside {

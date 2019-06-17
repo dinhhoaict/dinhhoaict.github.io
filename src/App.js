@@ -8,6 +8,7 @@ import rootReducer from "./reducers";
 import { Provider } from "react-redux";
 import OwnHome from "./ownhome/ownhome";
 import NavBar from "./ownhome/navbar";
+import { SideBar, Home2 } from "./home2";
 
 // const store = createStore(rootReducer); // Khởi tạo store
 
@@ -23,10 +24,10 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-				{/* <Sidebar></Sidebar>
-				<Main></Main> */}
-				<NavBar></NavBar>
-				<OwnHome></OwnHome>
+				<Home2></Home2>
+				{/* <Main></Main> */}
+				{/* <NavBar></NavBar>
+				<OwnHome></OwnHome> */}
 				
 			</div>
 		);
