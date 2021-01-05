@@ -5,7 +5,7 @@
     "homepage": "https://dinhhoaict.github.io/",
     "dependencies": {
         "@fullpage/react-fullpage": "^0.1.14",
-        "axios": "^0.18.0",
+        "axios": "^0.21.1",
         "babel-cli": "^6.26.0",
         "babel-preset-react": "^6.24.1",
         "envs": "^0.1.6",
